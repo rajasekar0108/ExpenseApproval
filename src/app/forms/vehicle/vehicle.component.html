@@ -1,0 +1,155 @@
+<div class="vehicle_replacement my-text">
+  <h1 class="text-center">Vehicle Replacement</h1>
+
+  <form class="form" #vehForm="ngForm" (ngSubmit)="vehicleForm(vehForm)">
+    <div class="vehicleForm">
+    <div class="flexone">
+      <div>
+        <label>Contract Selection:</label>
+        <select
+          class="form-select my-text"
+          [(ngModel)]="contractSelection"
+          (change)="onContractChange()"
+          name="Contract Name"
+        >
+          <option value="">Select Contract</option>
+          <option
+            *ngFor="let option of contractOptions"
+            [value]="option.contractName"
+          >
+            {{ option.contractName }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Vehicle No Selection:</label>
+        <select
+          class="form-select my-text"
+          [(ngModel)]="vehicleSelection"
+          (change)="onVehicleChange()"
+          name="Vehicle No."
+        >
+          <option value="">Select Vehicle</option>
+          <option
+            *ngFor="let option of vehicleOptions"
+            [value]="option.vehicleNo"
+          >
+            {{ option.vehicleNo }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="vehicleno">Vehicle Type:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.vehicleType" name="Vehicle Type" readonly />
+
+      </div>
+      <div>
+        <label for="reason">Vendor Name:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.vendorName" name="Vendor Name" readonly />
+
+      </div>
+      <div>
+        <label for="reason">Reason for Replacement:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Reason for Replacement"
+          id="reason"
+          ngModel
+          required
+
+        />
+      </div>
+     
+    </div>
+
+    <h4>Adhoc Vehicle</h4>
+    <div class="flextwo">
+      <div>
+        <label for="Adhoc Vehicle No">Adhoc Vehicle No:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Adhoc Vehicle No"
+          id="adhocvehicleno"
+          ngModel
+          required
+
+        />
+      </div>
+      <div>
+        <label for="Adhoc Vehicle Type">Adhoc Vehicle Type:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Adhoc Vehicle Type"
+          id="adhocVehicleType"
+          ngModel
+          required
+
+        />
+      </div>
+      <div>
+        <label for="Bank Name">Bank Name:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Bank Name:"
+          id="bank"
+          ngModel
+          required
+
+        />
+      </div>
+      <div>
+        <label for="IFSC Code">IFSC Code:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="IFSC Code"
+          id="ifsc"
+          ngModel
+          required
+
+        />
+      </div>
+      <div>
+        <label for="Branch Name">Branch Name:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Branch Name"
+          id="branch"
+          ngModel
+          required
+
+        />
+      </div>
+    
+      <div>
+        <!-- upload photo check -->
+        <label for="Amount">Amount:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Amount"
+          id="Amount"
+          ngModel
+          required
+
+        />
+      </div>
+    </div>
+  </div>
+    <div class="text-center">
+      <button type="submit" class="btn btn-success req_btn" [disabled]="disabled || vehForm.invalid">Request</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- PrimeNG Dialog Modal -->
+<p-dialog [(visible)]="displayModal" modal="true" [style]="{width: '400px'}" [header]="isError ? errorMessage  : 'Success'">
+  <p [ngClass]="{'text-danger': isError, 'text-success': !isError}">{{ modalMessage }}</p>
+  <button pButton label="Close" (click)="closeModal()" class="btn btn-primary"></button>
+</p-dialog>

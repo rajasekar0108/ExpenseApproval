@@ -1,0 +1,50 @@
+/* Style the card */
+.card {
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.ui-datatable .ui-datatable-thead > tr > th {
+  background: red;
+}
+
+.body td {
+  padding: 5px;
+}
+
+/* make  tabs in center */
+
+::ng-deep .p-tablist-tab-list {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+::ng-deep .p-tablist-tab-list > button {
+  margin: 0 10px !important;
+  font-size: 18px;
+  font-weight: 600;
+}
+::ng-deep  span.p-tablist-active-bar{
+display: none;
+}
+.status-pending {
+  color: rgb(53, 103, 196);
+}
+
+.approvedByManager {
+  color: orange;
+}
+.approvedByDirector {
+  color: green;
+}
+.rejectedByManager,
+.rejectedByDirector {
+  color: red;
+}
+
+.status-default {
+  color: black;
+}

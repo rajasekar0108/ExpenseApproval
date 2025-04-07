@@ -1,0 +1,36 @@
+<div class="header my-text">
+  <div class="navbar">
+    <div class="logo">
+      <img src="citylink logo.png" class="img-fluid" alt="" />
+      <!-- <img src="citylink white logo.png" width="200" alt="" /> -->
+
+    </div>
+    <div class="menu">
+      <a routerLink="/view" routerLinkActive="active">View</a>
+
+      <a routerLink="/create" routerLinkActive="active">Create</a>
+
+     </div>
+
+    <div class="profile d-flex align-items-center" (click)="showProfile()">
+      <i class="fa-solid fa-user me-2"  ></i>
+      <span>Welcome:</span>
+      <p class="m-0 p-0 fw-bold text-danger ms-1">{{ userDetails.username }}</p>
+    </div>
+    
+  </div>
+</div>
+<!-- Profile Dropdown -->
+<div class="profilemenu my-text" *ngIf="isProfileOpen">
+  <div>
+    <p id="name"  ><span  >Name:</span> {{ userDetails.username }}</p>
+    <p id="role" ><span  >Role:</span>{{ userDetails.roleName }}</p>
+
+    <button
+      class="!rounded-button w-full flex signout items-center justify-center px-4 py-2 text-sm font-medium text-red-600 hover:bg-red-50"
+      (click)="signOut()"
+    >
+      <i class="fas fa-sign-out-alt mr-2"></i> Sign out
+    </button>
+  </div>
+</div>

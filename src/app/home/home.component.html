@@ -1,0 +1,49 @@
+ 
+<div class="dropdowns flex my-text">
+  <div class="dropdown_one">
+    <label>Type</label>
+    <select
+      class="form-select my-text"
+      [(ngModel)]="primarySelection"
+      (change)="onPrimaryChange()"
+    >
+      <option value="">Select Type</option>
+      <option *ngFor="let option of primaryOptions" [value]="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+  </div>
+
+  <div class="dropdown_two" *ngIf="showSecondarySelect">
+    <label> Expense </label>
+    <!-- class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-custom focus:border-custom rounded-button" -->
+
+    <select
+      class="form-select"
+      [(ngModel)]="secondarySelection"
+      (change)="onSecondaryChange()"
+    >
+      <option value="">Select Option</option>
+      <option *ngFor="let option of secondaryOptions" [value]="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<div class="forms">
+  <!-- Maintenance Form -->
+  <div class="maintenance" *ngIf="showmaintenance">
+    <app-maintenance></app-maintenance>
+  </div>
+  <!-- Driver Replacement Form-->
+
+  <div class="driver_replacement" *ngIf="showdriver">
+    <app-driver></app-driver>
+  </div>
+  <!-- Vehicle  Replacement Form-->
+
+  <div class="vehicle_replacement" *ngIf="showvehicle">
+    <app-vehicle></app-vehicle>
+  </div>
+</div>

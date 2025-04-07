@@ -1,0 +1,76 @@
+<p-tabView class="tables m-4 my-text">
+  <p-tabPanel header="Pending">
+    <p-table
+      [value]="usersPending"
+      selectionMode="single"
+      dataKey="id"
+      [(selection)]="selectedUser1"
+      (rowSelect)="onRowSelect($event, 'pending')"
+    >
+      <ng-template pTemplate="header">
+        <tr class="thead" >
+          <th>Expense Category</th>
+
+          <th>Expense Type</th>
+
+          <th>Requester</th>
+          <th>Created On</th>
+          <th>Updated On</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr
+          [pSelectableRow]="user"
+          (click)="onRowSelect({ data: user }, 'pending')"
+        >
+          <td>{{ user["expenceSubCategory.expenceCategory.type"] }}</td>
+          <td>{{ user["expenceSubCategory.type"] }}</td>
+          <td>{{ user["admin_credential.Employeename"] }}</td>
+          <td>{{ user["createdAt"] | date : "dd-MM-yyyy" }}</td>
+          <td>{{ user["updatedAt"] | date : "dd-MM-yyyy" }}</td>
+
+          <td [ngClass]="getStatusClass(user.status)">
+            {{ user.status }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+
+  <p-tabPanel header="Completed">
+    <p-table
+      [value]="usersCompleted"
+      selectionMode="single"
+      dataKey="id"
+      [(selection)]="selectedUser"
+      (rowSelect)="onRowSelect($event, 'completed')"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Expense Category</th>
+          <th>Expense Type</th>
+          <th>Requester</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-user>
+        <tr
+          [pSelectableRow]="user"
+          (click)="onRowSelect({ data: user }, 'completed')"
+        >
+          <td>{{ user["expenceSubCategory.expenceCategory.type"] }}</td>
+          <td>{{ user["expenceSubCategory.type"] }}</td>
+          <td>{{ user["admin_credential.Employeename"] }}</td>
+          <td>{{ user["createdAt"] | date }}</td>
+          <td>{{ user["updatedAt"] | date }}</td>
+          <td [ngClass]="getStatusClass(user.status)">
+            {{ user.status }}
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-tabPanel>
+</p-tabView>

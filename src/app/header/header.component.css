@@ -1,0 +1,190 @@
+.header {
+  background-color: #f9f871 !important;
+  padding: 0px 120px;
+  box-shadow: 0 3px 6px #00000029;
+}
+a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+ }
+.img-fluid {
+  width: 170px;
+}
+ 
+ 
+.logo {
+  width: 60%;
+}
+.menu {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+
+ .profile {
+  position: relative;
+  width: 20%;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer; /* Makes it clear it's clickable */
+}
+ 
+ 
+/* modal related styling */
+ 
+
+.profile i {
+  font-size: 25px;
+  margin-right: 8px; /* Space between icon and text */
+}
+
+ 
+
+.profilemenu {
+  position: absolute;
+  right: 120px;
+  top: 80px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 100;
+}
+.profilemenu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+}
+ 
+.name,
+.role {
+  color: gray;
+  font-weight: 500;
+  font-size: 18px;
+
+}
+.name span,
+.role span {
+  color: black;
+  font-weight: 500;
+  padding: 5px;
+  font-size: 18px;
+
+}
+
+.profilemenu .signout {
+  width: 100%;
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+@media (max-width: 1200px) {
+  
+  .logo {
+    width: 30%;
+  }
+  .menu {
+    width: 40%;
+  }
+  .profile {
+    width: 30%;
+  }
+  
+  
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 0px 50px;
+  }
+  .img-fluid {
+    width: 120px;
+  }
+  .logo {
+    width: 20%;
+  }
+  .menu {
+    width: 40%;
+  }
+  .profile {
+    width: 40%;
+  }
+ 
+  .profile i {
+    font-size: 14px;
+    margin-right: 8px; /* Space between icon and text */
+  }
+  .header {
+     padding: 0px 50px;
+   }
+  
+}
+
+
+@media (max-width: 500px) {
+  .header {
+    padding: 0px 50px;
+  }
+  .img-fluid {
+    width: 120px;
+  }
+  .logo {
+    width: 20%;
+  }
+  .menu {
+    width: 30%;
+  }
+  .profile {
+    width: 45%;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+  }
+  .role {
+    color: gray;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  .name span,
+  .role span {
+    color: black;
+    font-weight: 500;
+    padding: 5px;
+    font-size: 14px;
+
+  }
+  .profile i {
+    font-size: 12px;
+    margin-right: 8px; /* Space between icon and text */
+  }
+  .header {
+     padding: 0px 20px;
+   }
+  
+}
+
+
+.menu a.active,
+.menu a:visited.active {
+  font-weight: bold;
+  color: green;
+  text-decoration: underline;
+}

@@ -1,0 +1,24 @@
+ 
+ .my-text {
+    font-family: 'Roboto', sans-serif !important;
+  }
+  body{
+    background-color: #eee !important;
+  }
+
+  ::ng-deep .p-tabview-nav-container {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  ::ng-deep .p-tabview-nav {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  ::ng-deep .p-tabview-nav li {
+    margin: 0 10px !important;
+  }
+  

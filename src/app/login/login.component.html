@@ -1,0 +1,50 @@
+
+<div class="main"> 
+
+<div class="login-container my-text">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+       <div class="logo text-center">
+        <img src="City Link Logo.png"   class="img-fluid" alt="" />
+      </div>
+      <div class="heading">
+        <h2>Sign In</h2>
+
+      </div>
+   
+      <div class="form-group">
+        <label for="mobile">Mobile:</label>
+        <input type="mobile" id="mobile" formControlName="mobile" class="form-control" />
+       
+        <small *ngIf="loginForm.controls['mobile'].invalid && loginForm.controls['mobile'].touched">
+          Enter user name or mobile no
+        </small>
+      </div>
+  
+      <div class="form-group position-relative">
+        <label for="password">Password:</label>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          id="password"
+          formControlName="password"
+          class="form-control"
+        />
+        
+        <!-- Eye icon -->
+        <i
+          class="fa"
+          [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"
+          (click)="togglePassword()"
+          style="position: absolute; top: 38px; right: 15px; cursor: pointer;"
+        ></i>
+      
+        <small *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched">
+          Password must be at least 6 characters
+        </small>
+      </div>
+      
+     <div class="text-center"> 
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+
+label {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600; /* Bold */
+  }
+  
+  
+ 
+.flex {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  padding: 50px;
+  flex-wrap: wrap;
+ }
+.dropdown_one,.dropdown_two {
+   width:calc(50% - 10px);
+   display: flex;
+}
+.form-select{
+  box-shadow: none;
+  border: 1px solid gray;
+}
+
+@media(max-width:670px){
+  .flex {
+     width: 100%;
+  }
+}

@@ -1,0 +1,115 @@
+<div class="driver_replacement my-text">
+  <h1 class="text-center">Driver Replacement</h1>
+  <form class="form" #drvForm="ngForm" (ngSubmit)="driverForm(drvForm)">
+  
+
+    <div class="driverForm">  
+    <h4>Primary Driver Details</h4>
+
+    <div class="flexone">
+      <div>
+        <label>Contract Selection:</label>
+        <select
+          class="form-select my-text"
+          [(ngModel)]="contractSelection"
+          (change)="onContractChange()"
+          name="Contract Name"
+        >
+          <option value="">Select Contract</option>
+          <option
+            *ngFor="let option of contractOptions"
+            [value]="option.contractName"
+          >
+            {{ option.contractName }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label>Vehicle No Selection:</label>
+        <select
+          class="form-select my-text"
+          [(ngModel)]="vehicleSelection"
+          (change)="onVehicleChange()"
+          name="Vehicle No."
+        >
+          <option value="">Select Vehicle</option>
+          <option
+            *ngFor="let option of vehicleOptions"
+            [value]="option.vehicleNo"
+          >
+            {{ option.vehicleNo }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label for="Driver Name">Driver Name:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.driverName" name="Driver Name" readonly />
+
+      </div>
+      <div>
+        <label for="Vendor Name">Vendor Name:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.vendorName" name="Vendor Name" readonly />
+
+      </div>
+     
+    </div>
+
+    <h4>Adhoc Driver</h4>
+    <div class="flextwo">
+      <div>
+        <label for="Adhoc Driver Name">Driver Name:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Adhoc Driver Name"
+          id="Adhoc Driver Name"
+          ngModel
+          required
+
+        />
+      </div>
+      <div>
+        <label for="Adhoc Driver Mobile No">Driver Mobile No:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Adhoc Driver Mobile No"
+          id="Adhoc Mobile No"
+          ngModel
+          required
+
+        />
+      </div>
+    
+      <div>
+        <label for="Daily Wages">Daily Wages:</label>
+        <input
+          class="form-control-lg"
+          type="text"
+          name="Daily Wages"
+          id="wage"
+          ngModel
+          required
+
+        />
+      </div>
+    
+    </div>
+  </div>
+
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success req_btn" [disabled]="disabled || drvForm.invalid">Request</button>
+    </div>
+    
+  </form>
+</div>
+
+
+
+<!-- PrimeNG Dialog Modal -->
+<p-dialog [(visible)]="displayModal" modal="true" [style]="{width: '400px'}" [header]="isError ? errorMessage  : 'Success'">
+  <p [ngClass]="{'text-danger': isError, 'text-success': !isError}">{{ modalMessage }}</p>
+  <button pButton label="Close" (click)="closeModal()" class="btn btn-primary"></button>
+</p-dialog>

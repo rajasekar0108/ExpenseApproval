@@ -1,0 +1,116 @@
+form {
+  background-color: #fff !important;
+  padding: 50px;
+ 
+  margin: 50px 120px;
+}
+
+.flex,.flex-one {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures equal spacing */
+  width: 100%;
+}
+
+/* .flex-child {
+  width: calc(33.33% - 20px);  
+  margin-bottom: 10px;  
+} */
+.flex-child {
+
+  width: calc(25% - 20px); /* Adjust width to fit 4 in one row */
+  margin-bottom: 10px; /* Space between rows if more elements exist */
+}
+.flex-one {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Ensures equal spacing */
+  width: 100%;
+  /* padding: 20px;
+  margin: 20px 0px; */
+  border: 1px solid black;
+
+  /* background-color: #ececec; */
+  /* border-radius: 16px; */
+}
+.flex-one-child{
+
+  width: calc(33.33%); /* Adjust width to fit 3 in one row */
+  margin-bottom: 10px; /* Space between rows if more elements exist */
+ }
+label {
+  font-size: 18px;
+  font-weight: 600;
+  color: gray;
+}
+.form-control {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0px;
+}
+
+@media (max-width: 1200px) {
+   
+  .flex-one-child {
+    width: calc(50% - 20px); /* Adjust width to fit 4 in one row */
+    margin-bottom: 10px; /* Space between rows if more elements exist */
+    padding: 10px;
+  }
+  
+}
+
+@media (max-width: 900px) {
+  form{
+    padding:20px;
+    margin: 50px ;
+
+  }
+  .flex-child,.flex-one-child {
+    width: calc(50% - 20px); /* Adjust width to fit 4 in one row */
+    margin-bottom: 10px; /* Space between rows if more elements exist */
+    padding: 10px;
+  }
+  
+}
+@media (max-width: 670px) {
+  form{
+    padding:20px;
+    margin: 50px ;
+
+  }
+  .flex-child,.flex-one-child {
+    width: calc(100% - 20px); /* Adjust width to fit 4 in one row */
+    margin-bottom: 10px; /* Space between rows if more elements exist */
+    padding: 10px;
+  }
+}
+
+.p-confirm-dialog {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+.head{
+  font-size: 16px;
+  /* color:#44449d; */
+  color: green;
+
+  font-weight: 500;
+  
+}
+.sp{
+  font-size: 18px;
+   color: black;
+  font-weight: 600;
+}
+
+.border{
+  border: 1px solid #ececec;
+}
+
+@media (min-width: 767.98px) and (max-width: 967.98px){
+  .status-wrap span {
+    display: block;
+  }
+}

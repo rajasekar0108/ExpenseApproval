@@ -1,0 +1,92 @@
+.vehicle_replacement {
+  background-color: #fff;
+  margin: 50px 120px;
+  padding: 50px;
+}
+.vehicleForm {
+  margin: 50px 0px;
+}
+h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0px;
+}
+h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0px;
+}
+label {
+  font-size: 18px;
+  font-weight: 600;
+  color: gray;
+}
+input,
+select {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 10px 0px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 16px;
+  border: 1px solid gray;
+}
+.flextwo,
+.flexone {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between; /* Change from space-between */
+  /* background-color: aliceblue; */
+}
+.flexone div,
+.flextwo div {
+  width: calc(25% - 20px); /* Adjust width to fit gaps */
+  margin: 10px 0px;
+}
+
+.req_btn {
+  color: white;
+  /* background-color: rgb(224, 23, 224); */
+  border: none;
+  padding: 7px 20px;
+  border-radius: 12px;
+ }
+
+@media (max-width: 1200px) {
+  .flextwo,
+  .flexone {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between; /* Change from space-between */
+    /* background-color: aliceblue; */
+  }
+  .flexone div,
+  .flextwo div {
+    width: calc(50% - 20px); /* Adjust width to fit gaps */
+    margin: 10px 0px;
+  }
+}
+
+@media (max-width: 670px) {
+  .flextwo,
+  .flexone {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between; /* Change from space-between */
+    /* background-color: aliceblue; */
+  }
+  .flexone div,
+  .flextwo div {
+    width: 100%; /* Adjust width to fit gaps */
+    margin: 10px 0px;
+  }
+  .vehicle_replacement {
+    background-color: #ececec;
+    margin: 50px 50px;
+    padding: 50px;
+  }
+}

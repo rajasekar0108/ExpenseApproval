@@ -1,0 +1,81 @@
+<div class="maintenance my-text">
+  <form class="form" #mainForm="ngForm" (ngSubmit)="maintenanceForm(mainForm)">
+    <h2 class="text-center my-text">Maintenance</h2>
+
+    <div class="flexform">
+      <div>
+        <label>Contract Selection:</label>
+        <select class="form-select my-text" [(ngModel)]="contractSelection" (change)="onContractChange()" name="Contract Name">
+          <option value="">Select contract</option>
+          <option *ngFor="let option of contractOptions" [value]="option.contractName">
+            {{ option.contractName }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label>Vehicle No Selection:</label>
+        <select class="form-select my-text" [(ngModel)]="vehicleSelection" (change)="onVehicleChange()" name="Vehicle No.">
+          <option value="">Select Vehicle</option>
+          <option *ngFor="let option of vehicleOptions" [value]="option.vehicleNo">
+            {{ option.vehicleNo }}
+          </option>
+        </select>
+      </div>
+
+      <div>
+        <label>Vehicle Type:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.vehicleType" name="Vehicle Type" readonly />
+      </div>
+
+      <div>
+        <label>Vendor Name:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.vendorName" name="Vendor Name" readonly />
+      </div>
+
+      <div>
+        <label>Vendor Bank Ac. No.:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.vendorAcc" name="Bank Ac." readonly />
+      </div>
+
+      <div>
+        <label>IFSC:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.ifsc" name="IFSC Code" readonly />
+      </div>
+
+      <div>
+        <label>Bank Name:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.bank" name="Bank Name" readonly />
+      </div>
+
+      <div>
+        <label>Branch:</label>
+        <input class="form-control-lg" type="text" [(ngModel)]="selectedVehicle.branch" name="Branch" readonly />
+      </div>
+
+      <div>
+        <label>Cost:</label>
+        <input class="form-control-lg" type="text" name="Cost" [(ngModel)]="selectedVehicle.cost" #cost="ngModel" required />
+        <div *ngIf="cost.invalid && cost.touched" class="text-danger">
+          Cost is required.
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-success" [disabled]="disabled || mainForm.invalid">Request</button>
+    </div>
+  </form>
+</div>
+
+<!-- PrimeNG Dialog Modal -->
+<p-dialog [(visible)]="displayModal" modal="true" [style]="{width: '400px'}" [closable]="false">
+  <h3 [ngClass]="{'text-danger': isError, 'text-success': !isError}">
+    {{ isError ? errorMessage : 'Success' }}
+  </h3>
+  <p [ngClass]="{'text-danger': isError, 'text-success': !isError}">{{ modalMessage }}</p>
+  <button pButton label="Close" (click)="closeModal()" class="btn btn-primary"></button>
+</p-dialog>
+
